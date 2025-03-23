@@ -1,4 +1,1 @@
-let gameCounter = 100
-++gameCounter;
-gameCounter++;
-console.log(gameCounter);
+console.log("2" === 2);

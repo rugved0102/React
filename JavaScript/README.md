@@ -110,3 +110,36 @@ console.log(1 + 2 + "2");  // "32"
 ### **3. Increment Operators (`++`)**  
 - `++var` (Pre-increment) → Increments first, then returns the value.  
 - `var++` (Post-increment) → Returns the value first, then increments.  
+
+## JavaScript Comparison Operators 
+
+### **1. Equality (`==`) vs. Strict Equality (`===`)**  
+- `==` allows type conversion.  
+- `===` checks both **value & type**. 
+```js 
+console.log("2" == 2);  // true
+console.log("2" === 2); // false
+```
+### **2. Relational Comparison (`>`, `<`, `>=`, `<=`)**  
+- Converts values **to numbers** before comparing.  
+```js
+console.log("2" > 1);  // true
+console.log("02" > 1); // true
+```
+### **3. `null` & `undefined` Comparisons**  
+- `null == 0` → `false` (no conversion).  
+- `null >= 0` → `true` (`null` converts to `0`).  
+- `undefined` **only equals `null`** in `==`, otherwise, behaves as `NaN` in comparisons.  
+- **Any comparison with `undefined` returns `false`**.  
+```js
+console.log(null > 0);  // false
+console.log(null == 0); // false
+console.log(null >= 0); // true
+
+console.log(undefined == null); // true
+console.log(undefined == 0);    // false
+console.log(undefined > 0);     // false
+console.log(undefined < 0);     // false
+console.log(undefined >= 0);    // false
+console.log(undefined <= 0);    // false
+```
