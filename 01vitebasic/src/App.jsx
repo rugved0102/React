@@ -1,7 +1,7 @@
 import Chai from "./chai"
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     // <h1>Rugved | Vite</h1>
