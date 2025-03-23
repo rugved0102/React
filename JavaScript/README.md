@@ -77,3 +77,36 @@ let stringNumber = String(someNumber);
 console.log(stringNumber); // "33"
 console.log(typeof stringNumber); // string
 ```
+
+## JavaScript Operators  
+
+### **1. Unary Operators**  
+- `-value` → Negates the value.  
+- `+value` → Converts to a number.  
+
+```js
+let value = 3;
+let negValue = -value;
+console.log(negValue); // -3
+
+console.log(+true);  // 1
+console.log(+"");    // 0
+```
+### **2. String Concatenation (`+`)**  
+- When adding a **string** and a **number**, the result is **a string**.  
+- Order affects the result.  
+```js
+let str1 = "hello";
+let str2 = " Rugved";
+let str3 = str1 + str2; 
+console.log(str3); // "hello Rugved"
+
+console.log("1" + 2);      // "12"
+console.log(1 + "2");      // "12"
+console.log(1 + "2" + 2);  // "122"
+console.log(1 + 2 + "2");  // "32"
+```
+
+### **3. Increment Operators (`++`)**  
+- `++var` (Pre-increment) → Increments first, then returns the value.  
+- `var++` (Post-increment) → Returns the value first, then increments.  
