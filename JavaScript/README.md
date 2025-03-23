@@ -37,3 +37,43 @@
 console.log(typeof "Rugved"); // string
 console.log(typeof undefined); // undefined
 console.log(typeof null); // object
+```
+## Type Conversion  
+
+### **To Number (`Number()`)**  
+| Input Value  | Converted Number |
+|-------------|----------------|
+| `"33"`      | `33`           |
+| `"33abc"`   | `NaN`          |
+| `null`      | `0`            |
+| `undefined` | `NaN`          |
+| `true`      | `1`            |
+| `"rugved"`  | `NaN`          |
+
+```js
+let score = "rugved";
+let valueInNumber = Number(score);
+console.log(typeof valueInNumber); // number
+console.log(valueInNumber); // NaN
+```
+### **To Boolean (Boolean())**
+| Input Value       | Converted Boolean |
+|-------------------|-------------------|
+| `1`               | `true`            |
+| `"rugved"`        | `true`            |
+| `""` (empty)      | `false`           |
+| `null`            | `false`           |
+
+```js
+let isLoggedIn = null;
+let booleanisLoggedIn = Boolean(isLoggedIn);
+console.log(booleanisLoggedIn); // false
+```
+
+### **To String (String())**
+```js
+let someNumber = 33;
+let stringNumber = String(someNumber);
+console.log(stringNumber); // "33"
+console.log(typeof stringNumber); // string
+```
