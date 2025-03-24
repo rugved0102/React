@@ -1,4 +1,4 @@
-# JS Variables - Quick Notes
+# JS - Quick Notes
 
 ## Declarations
 - `const` → Cannot be reassigned.  
@@ -21,6 +21,7 @@
 
 ## **Data Types**  
 1. **Primitive Types**  
+   (call by value)
    - `number` → Up to **2⁵³**  
    - `bigint` → Large integers  
    - `string` → `"text"`  
@@ -30,6 +31,7 @@
    - `symbol` → Unique identifier  
 
 2. **Non-Primitive Type**  
+   (call by reference)
    - `object` → Collection of key-value pairs  
 
 ## **Type Checking**  
@@ -143,3 +145,6 @@ console.log(undefined < 0);     // false
 console.log(undefined >= 0);    // false
 console.log(undefined <= 0);    // false
 ```
+
+## IMP Points
+- JavaScript is a dynamic language and not static, which means that variables can hold values of different types during runtime. Unlike languages such as Typescript or Java, you don't need to declare the data type of a variable explicitly.
