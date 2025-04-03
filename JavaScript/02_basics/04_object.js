@@ -48,4 +48,11 @@ const user = [
     }
 ];
 
-console.log(users[1].email);
+// users[1].email
+console.log(tinderUser);
+console.log(Object.keys(tinderUser)); // [id, name, isLoggedIn] // it will return the keys of the object
+console.log(Object.values(tinderUser)); // [1234567890, Rugved, true] // it will return the values of the object
+console.log(Object.entries(tinderUser)); // [[id, 1234567890], [name, Rugved], [isLoggedIn, true]] // it will return the entries of the object
+
+console.log(tinderUser.hasOwnProperty("id")); // true // it will check if the object has the property or not
+

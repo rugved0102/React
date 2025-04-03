@@ -192,3 +192,95 @@ console.log(undefined <= 0);    // false
   - `Array.isArray(value)` – Checks if a value is an array.
   - `Array.from(iterable)` – Converts an iterable (e.g., string) to an array.
   - `Array.of(...values)` – Creates an array from a set of values.
+
+
+## JavaScript Objects 
+
+### Singleton vs Object Literal
+- **Singleton:** Created using a **constructor function**.
+- **Object Literal:** `{}` does not create a singleton.
+
+### Symbols in Objects
+```javascript
+const mySymbol = Symbol("mySymbol");
+const obj1 = { 
+  name: "Rugved", 
+  age: 23, 
+  isMarried: false, 
+  [mySymbol]: "mySymbol" 
+};
+console.log(obj1[mySymbol]); // Accessing symbol property
+console.log(typeof mySymbol); // "symbol"
+```
+## Object Freezing
+```javascript
+Object.freeze(obj1); // prevents modifications
+```
+
+## Object Methods
+```javascript
+obj1.greeting = function() {
+    console.log("Hello JS user");
+};
+obj1.greetingTwo = function() {
+    console.log(`Hello JS user, ${this.name}`); // Template Literals (``) instead of "" or ''. Allows variable interpolation: ${this.name}.
+};
+```
+
+## Creating Objects
+### Using Object Literal
+```javascript
+const tinderUser = { 
+  id: 1234567890, 
+  name: "Rugved", 
+  isLoggedIn: true 
+};
+```
+### Nested Object Access
+```javascript
+const regularUser = {
+    email: "some@gmail.com",
+    fullname: { 
+      userfullname: { 
+        firstname: "Rugved", 
+        lastname: "J" 
+      } 
+    }
+};
+console.log(regularUser.fullname.userfullname.firstname); // "Rugved"
+```
+
+### Merging Objects
+```javascript
+const obj4 = Object.assign(obj1, obj2); // Modifies obj1
+const obj5 = { ...obj1, ...obj2 }; // Creates a new object
+console.log(obj5 === obj4); // false (different memory references)
+```
+
+### Object Methods
+```javascript
+console.log(Object.keys(tinderUser)); // ["id", "name", "isLoggedIn"]
+console.log(Object.values(tinderUser)); // [1234567890, "Rugved", true]
+console.log(Object.entries(tinderUser)); // [["id", 1234567890], ["name", "Rugved"], ["isLoggedIn", true]]
+console.log(tinderUser.hasOwnProperty("id")); // true
+```
+
+### Array of Objects
+```javascript
+const users = [
+    { id: 1, email: "xyz@gmail.com" },
+    { id: 2, email: "dgr@gmail.com" },
+    { id: 3, email: "f34@gmail.com" }
+];
+console.log(users[1].email); // "dgr@gmail.com"
+```
+## Key Takeaways
+   - Objects are reference types.
+
+   - Spread `(...)` creates a new object; `Object.assign()` modifies existing objects.
+
+   - Objects can have functions as properties.
+
+   - Use `Object.keys()`, `Object.values()`, and `Object.entries()` to extract object data.
+
+   - Use `Object.freeze()` to prevent modifications.
