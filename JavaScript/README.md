@@ -148,3 +148,47 @@ console.log(undefined <= 0);    // false
 
 ## IMP Points
 - JavaScript is a dynamic language and not static, which means that variables can hold values of different types during runtime. Unlike languages such as Typescript or Java, you don't need to declare the data type of a variable explicitly.
+
+## JavaScript Array Notes
+
+- **Creating Arrays:**
+  - **Literal:** `const arr = [1, 2, 3, 4, 5];`
+  - **Constructor (Not recommended):** `const arr1 = new Array(1, 2, 3, 4, 5);`
+  - Arrays are objects, resizable, and copying an array creates a shallow copy (copies reference, not deep values).
+
+- **Common Array Methods:**
+  - **Adding/Removing:**
+    - `push("value")` – Add to the end.
+    - `pop()` – Remove from the end.
+    - `unshift("value")` – Add to the beginning.
+    - `shift()` – Remove from the beginning.
+  - **Searching/Indexing:**
+    - `includes("value")` – Check existence.
+    - `indexOf("value")` – Get index.
+  - **Transforming:**
+    - `reverse()` – Reverse array.
+    - `sort()` – Sort array.
+    - `splice(start, count)` – Remove elements (modifies original).
+    - `slice(start, end)` – Get a sub-array (does not modify original).
+    - `join(separator)` – Convert array to string with given separator.
+    
+- **Array Merging:**
+  - Using `concat`:  
+    ```js
+    const allHeros = marvel_heros.concat(dc_heros);
+    ```
+  - Using Spread Operator:
+    ```js
+    const all_new_heros = [...marvel_heros, ...dc_heros];
+    ```
+
+- **Flattening Arrays:**
+  - `flat(depth)` – Flattens nested arrays to specified depth:
+    ```js
+    const flatArray = another_arr.flat(Infinity);
+    ```
+
+- **Utility Methods:**
+  - `Array.isArray(value)` – Checks if a value is an array.
+  - `Array.from(iterable)` – Converts an iterable (e.g., string) to an array.
+  - `Array.of(...values)` – Creates an array from a set of values.

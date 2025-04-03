@@ -28,3 +28,6 @@ const newArr = myHero.join()
 console.log(myHero);
 console.log(newArr);
 
+// Difference between splice and slice
+// splice modifies the original array and returns the removed elements
+// slice returns a new array and does not modify the original array
