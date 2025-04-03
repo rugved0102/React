@@ -11,3 +11,7 @@ console.log(typeof myDate); // object
 let myCreatedDate = new Date(2023,0,23)
 console.log(myCreatedDate.toDateString());
 
+let newDate = new Date()
+newDate.toLocaleString('default',{
+    weekday: "long",
+})
