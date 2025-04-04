@@ -421,3 +421,65 @@ if (true) {
   - This prevents polluting the global environment.
 
 ✅ Use `let`/`const` for predictable scoping in both environments.
+
+## JavaScript `this` & Arrow Functions
+### 🏠 Object & `this`  
+```js
+const user = {
+    username: "hitesh",
+    price: 999,
+    welcomeMessage: function() {
+        console.log(`${this.username}, welcome to website`);
+        console.log(this);
+    }
+};
+console.log(user);
+```
+  - `this` inside an object method refers to the current object.
+
+  - `user.welcomeMessage()` → `this` points to `user`.
+
+### 🌍 `this` in Global Scope
+  ```js
+  console.log(this);
+  ```
+  - In Browser → `this` refers to `window`.
+
+  - In Node.js → `this` is `{}` (empty object in module scope).
+
+### ❌ this inside a Regular Function
+```js
+function chai() {
+    let username = "hitesh";
+    console.log(this.username); // ❌ undefined
+}
+chai();
+```
+- `this` inside a regular function does NOT refer to the outer scope.
+
+- Instead, it refers to global object (`window` in browsers, `global` in Node.js), but primitive variables are NOT attached.
+
+### 🏹 this in Arrow Functions
+```js
+const chai = () => {
+    let username = "hitesh";
+    console.log(this);
+};
+chai();
+```
+- Arrow functions do not bind `this`.
+
+- `this` inside an arrow function refers to the parent scope (lexical `this`).
+
+### 🎯 Arrow Function Short Syntax
+```js
+const addTwo = (num1, num2) => num1 + num2;
+const addTwo2 = (num1, num2) => (num1 + num2);
+const addTwo3 = (num1, num2) => ({ username: "hitesh" });
+
+console.log(addTwo(3, 4)); // 7
+console.log(addTwo3()); // { username: "hitesh" }
+```
+- ✅ No `return` needed if using implicit return (`() => expression`).
+
+- ✅ To return an object, wrap it inside `()` → `({})`.

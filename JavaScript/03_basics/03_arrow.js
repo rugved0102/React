@@ -14,18 +14,19 @@ console.log(user);
 // user.username = "sam"
 // user.welcomeMessage()
 
-// console.log(this);
+// console.log(this); // window object in browser
+// console.log(this); // global object in node.js {}
 
 // function chai(){
 //     let username = "hitesh"
-//     console.log(this.username);
+//     console.log(this.username); // undefined
 // }
 
 // chai()
 
 // const chai = function () {
 //     let username = "hitesh"
-//     console.log(this.username);
+//     console.log(this.username); // undefined
 // }
 
 const chai =  () => {
@@ -53,3 +54,4 @@ console.log(addTwo(3, 4))
 // const myArray = [2, 5, 3, 7, 8]
 
 // myArray.forEach()
+
