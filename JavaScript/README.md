@@ -483,3 +483,22 @@ console.log(addTwo3()); // { username: "hitesh" }
 - ✅ No `return` needed if using implicit return (`() => expression`).
 
 - ✅ To return an object, wrap it inside `()` → `({})`.
+
+## 🚀 Immediately Invoked Function Expressions (IIFE)
+
+### 🔹 What is IIFE?  
+- A function that **executes immediately** after its definition.  
+- Helps **avoid global scope pollution**.
+- ⚠️ Important: Always end an IIFE with a `;` to avoid issues with multiple IIFEs.
+
+### 🔹 Syntax & Example  
+```js
+// Named IIFE
+(function chai() {
+    console.log(`DB CONNECTED`);
+})();
+
+// Arrow Function IIFE with Parameter
+((name) => {
+    console.log(`DB CONNECTED TWO ${name}`);
+})('hitesh');
