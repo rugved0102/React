@@ -56,3 +56,13 @@ console.log(Object.entries(tinderUser)); // [[id, 1234567890], [name, Rugved], [
 
 console.log(tinderUser.hasOwnProperty("id")); // true // it will check if the object has the property or not
 
+const course = {
+    courseName: "Javascript",
+    coursePrice: 999,
+    courseInstructor: "Rugved",
+}
+
+// course.courseInstructor
+const {courseInstructor: ci} = course // destructuring means to extract the value of the key and assign it to the variable name
+// courseInstructor is the key and ci is the variable name
+console.log(ci); // Rugved
