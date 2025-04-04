@@ -357,4 +357,47 @@ function returnSecondValue(arr) {
 
   - Pass objects and arrays to functions for structured data manipulation.
 
-  
+
+## JavaScript Scope & Hoisting 
+
+### 🔹 Block Scope with `let` and `const`
+```js
+let a = 300;
+if (true) {
+  let a = 10; // Block-scoped
+  const b = 20;
+}
+console.log(a); // 300 (outer 'a')
+// b is not accessible outside the block
+```
+### 🔹 Function Scope & Closure
+```js
+function one() {
+  const username = "hitesh";
+  function two() {
+    const website = "youtube";
+    console.log(username); // Closure: inner can access outer
+  }
+  two();
+}
+```
+### 🔹Nested If Scope
+```js
+if (true) {
+  const username = "hitesh";
+  if (username === "hitesh") {
+    const website = "youtube";
+    console.log(username + website);
+  }
+  // website not accessible here
+}
+```
+### Hoisting 
+  - Hoisting is JavaScript's behavior of moving declarations to the top of their scope.
+  #### ✅ Function Declaration – Hoisted
+  ```js
+    console.log(addone(5));
+  function addone(num) {
+    return num + 1;
+  }
+  ```

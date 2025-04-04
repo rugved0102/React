@@ -71,3 +71,6 @@ const addTwo = function(num){
 //   - This prevents polluting the global environment.
 
 // ✅ Use `let`/`const` for predictable scoping in both environments.
+
+// Hoisting in JavaScript:
+// - Hoisting is JavaScript's behavior of moving declarations to the top of their scope.
