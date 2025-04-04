@@ -397,7 +397,27 @@ if (true) {
   #### ✅ Function Declaration – Hoisted
   ```js
     console.log(addone(5));
-  function addone(num) {
+    function addone(num) {
     return num + 1;
   }
   ```
+  #### ❌ Function Expression – Not Hoisted
+  ```js
+    console.log(addTwo(5)); // ❌ Error
+    const addTwo = function(num) {
+    return num + 2;
+  };
+  ```
+
+## Scope Difference: Browser vs Node.js
+
+- In the **Browser Console**:
+  - `var` variables become part of the global `window` object.
+  - Code runs directly in global scope.
+
+- In **Node.js**:
+  - Each file is wrapped in a function scope by default.
+  - `var`, `let`, `const` don't attach to the `global` object.
+  - This prevents polluting the global environment.
+
+✅ Use `let`/`const` for predictable scoping in both environments.
