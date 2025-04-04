@@ -3,7 +3,7 @@
 ## Declarations
 - `const` → Cannot be reassigned.  
 - `let` → Can be reassigned.  
-- `var` → ❌ Avoid (scope issues).  
+- `var` → ❌ Avoid (scope issues), function-scoped (not block-scoped). Variables declared with `var` inside `if`, `for`, etc. are accessible outside that block.  
 - Implicit declaration (`accountCity = "Pune";`) is unsafe.
 
 ## Undefined Variables
@@ -274,7 +274,21 @@ const users = [
 ];
 console.log(users[1].email); // "dgr@gmail.com"
 ```
-## Key Takeaways
+### Destructuring
+```javascript
+const course = {
+    courseName: "Javascript",
+    coursePrice: 999,
+    courseInstructor: "Rugved",
+}
+
+// course.courseInstructor
+const {courseInstructor: ci} = course // destructuring means to extract the value of the key and assign it to the variable name
+// courseInstructor is the key and ci is the variable name
+console.log(ci); // Rugved
+```
+
+### Key Takeaways
    - Objects are reference types.
 
    - Spread `(...)` creates a new object; `Object.assign()` modifies existing objects.
@@ -284,3 +298,63 @@ console.log(users[1].email); // "dgr@gmail.com"
    - Use `Object.keys()`, `Object.values()`, and `Object.entries()` to extract object data.
 
    - Use `Object.freeze()` to prevent modifications.
+
+
+## JavaScript Functions 
+
+### Function Basics
+- **Function declaration**
+```js
+function sayMyName() {
+    console.log("H");
+    console.log("I");
+}
+```
+
+- **Function Invocation** 
+```js
+sayMyName();
+```
+
+### Returning Values
+```js
+function addTwoNumbers(num1, num2) {
+    return num1 + num2;
+}
+const result = addTwoNumbers(3, 5);
+```
+
+### Default Parameters
+```js
+function loginUserMessage(username = "sam") {
+    return `${username} just logged in`;
+}
+```
+
+### Rest Parameters
+```js
+function calculateCartPrice(val1, val2, ...prices) {
+    return prices;
+}
+```
+### Passing Objects to Functions
+```js
+function handleObject(obj) {
+    console.log(`Username is ${obj.username} and price is ${obj.price}`);
+}
+```
+
+### Passing Arrays to Functions
+```js
+function returnSecondValue(arr) {
+    return arr[1];
+}
+```
+### Key Takeaways
+  - Use default parameters to handle missing values.
+
+  - Rest parameters `(...)` allow handling multiple arguments.
+
+  - Pass objects and arrays to functions for structured data manipulation.
+
+  
