@@ -584,3 +584,67 @@ val1 = 0 ?? 20          // → 0 (0 is not null/undefined)
 ```js
 condition ? doIfTrue : doIfFalse;
 ```
+
+## JavaScript Loops & Iteration
+
+### `for` Loop
+- Basic iteration with index.
+- Can be nested (`outer` & `inner` loops).
+```js
+for (let i = 0; i <= 10; i++) {}
+```
+### `break` & `continue`
+  - `break`: exits the loop.
+
+  - `continue`: skips current iteration.
+
+### `while` Loop
+- Runs while condition is true.
+```js
+while (condition) {}
+```
+
+### `do...while` Loop
+- Executes at least once.
+```js
+do {} while (condition);
+```
+
+### `for...of`
+- Iterates over arrays, strings, maps.
+```js
+for (const item of iterable) {}
+```
+
+### `for...in`
+- Iterates over keys of objects/arrays.
+```js
+for (const key in object) {}
+```
+
+### Map Iteration
+- Use `for...of` with destructuring.
+```js
+for (const [key, value] of map) {}
+```
+
+### forEach
+- Array method for looping.
+```js
+arr.forEach((item, index, array) => {})
+```
+#### Example: Array of Objects
+```js
+myCoding.forEach(item => {
+  console.log(item.languageName);
+});
+```
+  - ⚠️ for...in doesn't work on Map, use for...of instead.
+
+### Summary Table
+| Method    | Purpose          | Returns            | Use Case                          |
+|-----------|------------------|---------------------|-----------------------------------|
+| `forEach` | Iterate only     | `undefined`         | Running side effects (logs, etc.) |
+| `map`     | Transform items  | New array           | Modify elements in array          |
+| `filter`  | Select items     | New filtered array  | Extract matching items            |
+
