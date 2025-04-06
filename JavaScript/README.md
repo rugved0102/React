@@ -502,3 +502,52 @@ console.log(addTwo3()); // { username: "hitesh" }
 ((name) => {
     console.log(`DB CONNECTED TWO ${name}`);
 })('hitesh');
+
+
+## JavaScript Execution Context & Call Stack
+
+### Overview
+- JavaScript is **single-threaded**.
+- When a JS file starts executing, the **Global Execution Context (GEC)** is created.
+- The `this` keyword refers to the global context.
+- There are three types of execution contexts:
+  1. **Global Execution Context**
+  2. **Function Execution Context** – created when a function is called.
+  3. **Eval Execution Context** – rarely used, created by `eval()` function.
+
+### Two Phases of JS Execution
+
+#### 1. **Creation Phase (Memory Allocation Phase)**
+- All **variables and functions are allocated memory**.
+- This phase is also called the **first cycle**.
+- Only references are stored, not actual values.
+
+#### 2. **Execution Phase**
+- Actual **code is executed**.
+- When a function is called, a **new execution context** is created.
+- Each function execution context has:
+  - **Variable Environment**
+  - **Execution Thread**
+- Function execution context also goes through:
+  - **Memory phase**
+  - **Execution phase**
+- Once done, the context is **destroyed**.
+
+### Call Stack
+
+- The **Call Stack** manages execution contexts.
+- It starts with the **Global Execution Context**.
+- When a function is invoked:
+  - Its execution context is **pushed** onto the stack.
+- When the function finishes:
+  - The context is **popped** from the stack.
+
+### Summary
+
+- JS runs in a **single thread** using a **call stack**.
+- Execution contexts are created for each function call.
+- Each context goes through **creation and execution phases**.
+- The stack ensures the correct **order of execution**.
+
+
+![alt text](04_control_flow/image.png)
