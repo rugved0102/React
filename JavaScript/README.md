@@ -551,3 +551,36 @@ console.log(addTwo3()); // { username: "hitesh" }
 
 
 ![alt text](04_control_flow/image.png)
+
+## Falsy/Truthy, Nullish, Ternary
+
+### Falsy Values
+Values treated as `false` in boolean context:
+- `false`
+- `0`, `-0`
+- `BigInt(0n)`
+- `""` (empty string)
+- `null`
+- `undefined`
+- `NaN`
+
+### Truthy Values
+Anything not falsy, e.g.:
+- `"0"`, `" "` (non-empty strings)
+- `'false'`
+- `[]` (empty array)
+- `{}` (empty object)
+- `function() {}`
+
+### Nullish Coalescing Operator (`??`)
+Returns the right-hand value only if the left-hand value is `null` or `undefined`.
+```js
+val1 = null ?? 10       // → 10
+val1 = undefined ?? 15  // → 15
+val1 = 0 ?? 20          // → 0 (0 is not null/undefined)
+```
+
+### Ternary Operator
+```js
+condition ? doIfTrue : doIfFalse;
+```
