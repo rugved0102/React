@@ -502,7 +502,7 @@ console.log(addTwo3()); // { username: "hitesh" }
 ((name) => {
     console.log(`DB CONNECTED TWO ${name}`);
 })('hitesh');
-
+```
 
 ## JavaScript Execution Context & Call Stack
 
