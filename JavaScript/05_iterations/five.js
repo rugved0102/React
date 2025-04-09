@@ -37,3 +37,18 @@ myCoding.forEach( (item) => {
     
     console.log(item.languageName);
 } )
+
+let newArray = ['rugved', 'ajay', 'sachin', 'ankush', 'siddharth']
+// newArray.forEach(function(val) {
+//     console.log(val);
+    
+// })
+let newArrayelem = newArray.forEach(item => {
+    console.log(item);
+})
+console.log(newArrayelem); // undefined, because forEach does not return anything
+
+const values = newArray.forEach((item) => {
+    return item
+})
+console.log(values); // undefined
