@@ -629,7 +629,9 @@ for (const [key, value] of map) {}
 ```
 
 ### forEach
-- Array method for looping.
+- Used to **iterate** over items.
+- Does **not return a new array**.
+- Commonly used for side effects like `console.log()` or `push()`.
 ```js
 arr.forEach((item, index, array) => {})
 ```
@@ -640,6 +642,32 @@ myCoding.forEach(item => {
 });
 ```
   - ⚠️ for...in doesn't work on Map, use for...of instead.
+
+### filter()
+- Returns a new array with elements that pass a condition.
+
+- Always returns elements for which the callback returns `true`.
+```js
+const nums = [1, 2, 3, 4, 5];
+const result = nums.filter(num => num > 3); // [4, 5]
+```
+
+### map()
+- Returns a new array with transformed values.
+
+- Each item is mapped to a new value using the callback function.
+```js
+const nums = [1, 2, 3];
+const plusTen = nums.map(num => num + 10); // [11, 12, 13]
+```
+### reduce()
+- Reduces the array to a single value.
+
+- Commonly used for totals, averages, etc.
+```js
+const nums = [1, 2, 3];
+const sum = nums.reduce((acc, curr) => acc + curr, 0); // 6
+```
 
 ### Summary Table
 | Method    | Purpose          | Returns            | Use Case                          |
