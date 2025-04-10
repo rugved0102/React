@@ -676,3 +676,69 @@ const sum = nums.reduce((acc, curr) => acc + curr, 0); // 6
 | `map`     | Transform items  | New array           | Modify elements in array          |
 | `filter`  | Select items     | New filtered array  | Extract matching items            |
 
+## 🌐 DOM (Document Object Model)
+
+### 📘 What is the DOM?
+- The **DOM** is a programming interface for web documents.
+- It represents the structure of an HTML document as a **tree** of objects.
+- Allows JavaScript to interact with and manipulate HTML & CSS.
+
+---
+
+### 🧱 DOM Structure
+- Everything in HTML becomes a **node** in the DOM.
+  - Document → Root node
+  - Elements → Element nodes
+  - Text → Text nodes
+  - Comments → Comment nodes
+
+---
+
+### 🔍 Selecting Elements
+
+| Method | Description |
+|--------|-------------|
+| `getElementById(id)` | Selects an element by its ID |
+| `getElementsByClassName(class)` | Selects elements by class name (HTMLCollection) |
+| `getElementsByTagName(tag)` | Selects elements by tag name (HTMLCollection) |
+| `querySelector(selector)` | Selects the **first** element matching a CSS selector |
+| `querySelectorAll(selector)` | Selects **all** matching elements (NodeList) |
+
+---
+
+### ✏️ Modifying Elements
+
+```js
+element.textContent = 'Hello';    // Change text
+element.innerHTML = '<b>Hi</b>';  // Change inner HTML
+element.style.color = 'red';      // Change style
+element.setAttribute('id', 'newId'); // Set attributes
+```
+
+---
+
+### 🛠️ Creating & Inserting Elements
+
+```js
+let div = document.createElement('div');
+div.textContent = 'New Element';
+document.body.appendChild(div); // Adds at end of body
+```
+
+---
+
+### 🗑️ Removing Elements
+
+```js
+element.remove(); // Modern way
+parent.removeChild(child); // Old way
+```
+
+### 📚 Useful Terms
+  - Node: A single point in the DOM tree
+
+  - Element: HTML tag (like `<div>`, `<p>`)
+
+  - Attribute: HTML attributes like `id`, `class`
+
+  - Event: User actions like click, keypress, etc.
