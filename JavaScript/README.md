@@ -742,3 +742,63 @@ parent.removeChild(child); // Old way
   - Attribute: HTML attributes like `id`, `class`
 
   - Event: User actions like click, keypress, etc.
+
+## DOM Events
+
+### ✅ Event Handling Methods
+- `element.onclick = function() {}`  
+  ➤ Basic way to attach events (limited features).
+- `element.addEventListener('event', function, useCapture)`  
+  ➤ Preferred method. Supports event propagation (bubbling/capturing) and multiple listeners.
+
+---
+
+### 🌀 Event Propagation
+Event propagation determines the **order** in which elements receive the event.
+
+#### 1. **Event Bubbling** (default)
+- Event flows from **target → parent → up to root**.
+- Use `e.stopPropagation()` to stop the bubble.
+```js
+element.addEventListener('click', handler, false) // false = bubbling
+```
+
+#### 2. **Event Capturing**
+- Event flows from **root → down to target**.
+- Enable with third parameter: `addEventListener('click', handler, true)`
+```js
+element.addEventListener('click', handler, true) // true = capturing
+```
+
+---
+
+### 📌 Event Object (`e`)
+Common useful properties:
+- `e.target` → Actual element clicked
+- `e.currentTarget` → Element where handler is attached
+- `e.preventDefault()` → Prevents default behavior (e.g., stopping a link)
+- `e.stopPropagation()` → Stops event from bubbling/capturing further
+- Mouse coordinates: `e.clientX`, `e.clientY`, `e.screenX`, `e.screenY`
+- Modifier keys: `e.ctrlKey`, `e.shiftKey`, `e.altKey`
+
+---
+
+### 🧹 Remove Element Dynamically
+```js
+document.querySelector('#images').addEventListener('click', function(e){
+    if (e.target.tagName === 'IMG') {
+        e.target.parentNode.remove()
+    }
+})
+```
+- Checks if an `<img>` was clicked and removes its `<li>` wrapper using `parentNode.remove()`.
+
+---
+
+### 🚫 Prevent Default
+```js
+document.getElementById('google').addEventListener('click', function(e){
+    e.preventDefault()       // Stops link from navigating
+    e.stopPropagation()      // Stops bubbling
+})
+```
