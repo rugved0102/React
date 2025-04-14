@@ -802,3 +802,7 @@ document.getElementById('google').addEventListener('click', function(e){
     e.stopPropagation()      // Stops bubbling
 })
 ```
+
+---
+
+![alt text](8_events/image.png)
