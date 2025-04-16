@@ -806,3 +806,6 @@ document.getElementById('google').addEventListener('click', function(e){
 ---
 
 ![alt text](8_events/image.png)
+<!-- akela js ka engine hota hi nhi hai mostly vo runtime env me milega -->
+<!-- blocking code vs non - blocking code  -->
+![alt text](8_events/How_JS_engine_works.png)
