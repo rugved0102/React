@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/rugved0102'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',requestUrl)
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4) {
+            // console.log(this.responseText)
+            const data = JSON.parse(this.responseText) // responseText string me milta hai so use object me convert kiya hamne aur fir followers ko access kr rahe hai
+            console.log("Followers : "+data.followers)
+        }
+    }
+    
+    xhr.send()
+</script>
+</html>
+
+<!-- console.log ye technically js ka part hai bhi aur nhi bhi. core js me basic arithmetic ops kuch func executation aur loops hai. console.log ye ek dubugging tool hai, aapke browser ka devTool hai. Ye jo runtime hai javascript ka vo inject karta hai. pura js hi hai wrapper c++ ke upar.  -->
