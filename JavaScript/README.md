@@ -810,7 +810,7 @@ document.getElementById('google').addEventListener('click', function(e){
 
 ## ⚡ Asynchronous JavaScript 
 
-![alt text](8_events/image.png)
+![alt text](08_events/image.png)
 <!-- akela js ka engine hota hi nhi hai mostly vo runtime env me milega -->
 <!-- blocking code vs non - blocking code  -->
 
@@ -820,9 +820,8 @@ document.getElementById('google').addEventListener('click', function(e){
 - Enables smooth, non-blocking user experience.
 
 ---
-
-![alt text](8_events/How_JS_engine_works.png)     
-For detailed explanation, check out this [JavaScript Engine Deep Dive](JavaScript/How_JS_Engine_Works.md).
+![alt text](08_events/How_JS_engine_works.png)
+[JavaScript Engine Deep Dive](JavaScript/How_JS_Engine_Works.md).
 
 ### 🧱 Components
 
@@ -859,3 +858,43 @@ Start
 End
 Async Task
 ```
+---
+
+## 💡 Is `console.log` a part of JavaScript?
+
+- Technically, `console.log()` is **not** a part of the **core JavaScript language** (ECMAScript specification).
+- Core JavaScript includes:
+  - Primitive data types
+  - Operators
+  - Control structures (like `if`, `for`, `while`)
+  - Function execution and scope handling
+
+---
+
+### 🔍 Then what is `console.log()`?
+
+- It is a **debugging tool** provided by the **runtime environment** (like a web browser or Node.js).
+- In the **browser**, `console.log` is part of the **Web APIs** provided by the **JavaScript runtime** (like Chrome's V8 engine via DevTools).
+- In **Node.js**, it’s exposed via the global `console` object, implemented in C++ under the hood.
+
+---
+
+### 🧠 So What’s Really Happening?
+
+- JavaScript is often said to be a "wrapper over C++" in runtime environments.
+- The `console` object and methods like `.log()` are made available by the **runtime**, not by the language spec itself.
+- That's why you can't use `console.log()` in environments without a console (like pure embedded JS engines).
+
+---
+
+### ✅ Conclusion:
+
+`console.log()` ≠ Pure JavaScript  
+`console.log()` ∈ Runtime Features
+
+It’s like saying:  
+🛠️ **JavaScript = Brain**  
+🌍 **Runtime = World it lives in (with tools)**  
+
+---
+
