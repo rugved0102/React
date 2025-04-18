@@ -805,7 +805,57 @@ document.getElementById('google').addEventListener('click', function(e){
 
 ---
 
+
+
+
+## ⚡ Asynchronous JavaScript 
+
 ![alt text](8_events/image.png)
 <!-- akela js ka engine hota hi nhi hai mostly vo runtime env me milega -->
 <!-- blocking code vs non - blocking code  -->
-![alt text](8_events/How_JS_engine_works.png)
+
+### ✅ What is Asynchronous JS?
+- Allows code to run **without blocking** the main thread.
+- Lets time-consuming tasks (e.g., API calls, timers) happen **in the background**.
+- Enables smooth, non-blocking user experience.
+
+---
+
+![alt text](8_events/How_JS_engine_works.png)     
+For detailed explanation, check out this [JavaScript Engine Deep Dive](JavaScript/How_JS_Engine_Works.md).
+
+### 🧱 Components
+
+#### 1. **Call Stack**
+- Executes synchronous code line-by-line.
+
+#### 2. **Web APIs (Browser APIs)**
+- Handles async tasks: `setTimeout`, `DOM Events`, `fetch`, etc.
+
+#### 3. **Callback Queue / Task Queue**
+- Holds completed async callbacks waiting to be pushed to the call stack.
+
+#### 4. **Event Loop**
+- Constantly checks if the call stack is empty.
+- If empty, pushes a task from the queue to the call stack.
+
+---
+
+### ⏱ Examples
+
+#### `setTimeout`
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Async Task");
+}, 2000);
+
+console.log("End");
+```
+
+```javascript
+Start
+End
+Async Task
+```
