@@ -957,3 +957,53 @@ fetch(url)
 - You cannot return a value from `.then()` into outer scope — use chaining or `async/await` instead
 
 ---
+
+## 🌐 fetch() API – Promise Workflow Diagram
+
+### 🔹 Overview
+- `fetch()` is used to make HTTP requests in JavaScript.
+- It **returns a Promise**, which goes through `pending → fulfilled / rejected`.
+
+---
+
+### 🔹 Diagram Flow
+
+![alt text](09_advance_one/fetch.png)
+
+1. **Call**  
+   `fetch('url')` → returns a Promise (e.g., stored in `response`)
+
+2. **Promise States**
+   - ✅ `onFulfilled`: Request successful → response returned
+   - ❌ `onRejection`: Request failed → error thrown
+
+3. **Environment**
+   - Works in **Web Browsers** and **Node.js** (via `node-fetch`)
+
+4. **Network Layer**
+   - Behind the scenes: performs **asynchronous HTTP request**
+
+5. **Global Memory**
+   - The returned Promise (e.g., `response`) is stored in memory  
+   - Later used with `.then()`, `.catch()`, `await`, etc.
+
+---
+
+### 🔹 Key Concepts
+- `onFulfilled` and `onRejection` are part of the **Promise lifecycle**
+- Use `.then()` to handle fulfilled response
+- Use `.catch()` for rejections (errors)
+- `finally()` runs after fulfillment/rejection
+
+---
+
+### 🔹 Quick Example
+```js
+fetch('https://api.example.com/data')
+  .then(res => res.json())     // onFulfilled
+  .then(data => console.log(data))
+  .catch(err => console.error(err))  // onRejection
+  .finally(() => console.log("Done"));
+```
+
+---
