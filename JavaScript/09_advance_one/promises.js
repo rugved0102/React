@@ -84,23 +84,40 @@ async function consumePromiseFive(){
 
 consumePromiseFive()
 
-async function getAllUsers() {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users')
-        // fetch() is an async function, and it returns a Promise.
+// async function getAllUsers() {
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
+//         // fetch() is an async function, and it returns a Promise.
 
-        // So agar hum await nahi likhenge, toh response me milega:
-        // Promise { <pending> }
+//         // So agar hum await nahi likhenge, toh response me milega:
+//         // Promise { <pending> }
 
-        // But agar hum likhte hain:
-        // const response = await fetch(...);
-        // Toh JS engine ruk jaata hai, wait karta hai jab tak data server se aa nahi jaata, and fir response me actual response object milta hai (not promise).
-        //         const data = response.json()
-        //         console.log(data);
+//         // But agar hum likhte hain:
+//         // const response = await fetch(...);
+//         // Toh JS engine ruk jaata hai, wait karta hai jab tak data server se aa nahi jaata, and fir response me actual response object milta hai (not promise).
+//                 const data = await response.json()
+//                 console.log(data);
         
-    } catch (error) {
-        console.log("E: ",error);
-    }
-}
+//     } catch (error) {
+//         console.log("E: ",error);
+//     } finally {
+//         console.log("Ye to run hoga hii!");
+        
+//     }
+// }
 
-getAllUsers()
+// getAllUsers()
+
+
+// Other way to write above code using then()
+
+fetch('https://jsonplaceholder.typicode.com/users')
+.then((response) => {
+    return response.json()
+})
+.then((data) => console.log(data)
+)
+.catch((error) => console.log(error)
+)
+
+// micro task queue ke bare me padho
