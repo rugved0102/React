@@ -36,3 +36,5 @@ const userTwo = new User("Raj",11,false) // constructor func hamesha hame ek nay
 
 console.log(userOne);
 console.log(userTwo);
+console.log();
+
