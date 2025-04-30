@@ -67,4 +67,4 @@ Teacher.__proto__= User
 // Ye upar wala purne jamane me use krte the
 
 // modern syntax
-Object.setPrototypeOf(TeachingSupport, Teacher)  
+Object.setPrototypeOf(TeachingSupport, Teacher)  // prototypal inheritance
