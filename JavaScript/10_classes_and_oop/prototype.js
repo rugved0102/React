@@ -10,6 +10,14 @@ console.log(myName.length); // 11
 console.log(myName.trim().length); // 6 // low IQ vala kaam
 
 // muze ek method banani hai jis se har string pr me lagau to leading spaces na gin kr true Length return kare
+String.prototype.trueLength = function() {
+    console.log(`${this}`);
+    console.log(`True length is: ${this.trim().length}`);
+}
+
+myName.trueLength()
+"JaiShreeRam".trueLength()
+
 
 let myHeros = ["thor", "spiderman"]
 let heroPower = {
@@ -68,3 +76,4 @@ Teacher.__proto__= User
 
 // modern syntax
 Object.setPrototypeOf(TeachingSupport, Teacher)  // prototypal inheritance
+
