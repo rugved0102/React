@@ -1008,3 +1008,149 @@ fetch('https://api.example.com/data')
 
 ---
 
+## 🚀 Prototypal Behavior, Inheritance & `this`
+
+### 🔹 What is `[[Prototype]]`?
+
+- Every object in JavaScript has a hidden internal property called `[[Prototype]]` (visible as `__proto__`).
+- JavaScript looks for properties/methods on the object.
+- If not found, it searches in the prototype chain.
+- If still not found, it returns `undefined`.  
+```js
+const user = {
+    username : "Rugved",
+    loginCount : 8,
+    signedIn : true,
+
+    getUserDetails: function() {
+        console.log("Got user details from database");
+        console.log(`${this.username}`);
+    }
+}
+console.log(user.getUserDetails());
+```
+
+### 🔹 Custom Methods via Prototypes
+
+- We can add methods to built-in objects like String or Array.
+- Example: Add a `trueLength()` method to String.
+- This helps enhance built-in functionality.  
+```js
+let myName = "Rugved     ";
+
+String.prototype.trueLength = function() {
+    console.log(`${this}`);
+    console.log(`True length is: ${this.trim().length}`);
+}
+
+myName.trueLength();
+"JaiShreeRam".trueLength();
+```
+
+### 🔹 The `this` Keyword
+
+- Inside a method, `this` refers to the object calling the method.
+- Inside a function, `this` depends on **how** it's called, not where it’s written.
+- When used in objects, `this` is very powerful for dynamic reference.  
+
+
+### 🔹 Extending All Objects and Arrays
+
+- Use `Object.prototype` to extend all objects.
+- Use `Array.prototype` to extend all arrays.
+- Be careful: extending global prototypes can affect existing behavior.  
+```js
+let myHeros = ["thor", "spiderman"];
+
+Object.prototype.rugved = function() {
+    console.log(`rugved is present in all objects`);
+}
+
+Array.prototype.heyRugved = function() {
+    console.log(`rugved says hello`);
+}
+
+myHeros.rugved();
+myHeros.heyRugved();
+```
+
+### 🔹 Prototypal Inheritance Between Objects
+
+- Old way: `obj.__proto__ = baseObj`
+- Modern way: `Object.setPrototypeOf(childObj, parentObj)`
+- Helps share properties/methods across object hierarchies.  
+```js
+const User = {
+    name: "rugved",
+    email: "rugved@google.com"
+}
+
+const Teacher = {
+    makeVideo: true
+}
+
+const TeachingSupport = {
+    isAvailable: false  
+}
+
+const TASupport = {
+    makeAssignment: 'JS assignment',
+    fullTime: true,
+    __proto__: TeachingSupport
+}
+
+Teacher.__proto__= User;
+Object.setPrototypeOf(TeachingSupport, Teacher);
+```
+
+### 🔹 Functions Are Objects Too
+
+- Functions can have their own properties.
+- They also have a `.prototype` which is used during construction.
+- Example: Add a static property to a function.  
+```js
+function MultiplyBy5(num) {
+    return num * 5;
+}
+
+MultiplyBy5.power = 2;
+
+console.log(MultiplyBy5(5));         // 25
+console.log(MultiplyBy5.power);      // 2
+console.log(MultiplyBy5.prototype);  // {}
+```
+
+### 🔹 Constructor Functions + `new` Keyword
+
+When you use `new`:
+
+1. A new empty object is created.
+2. That object is linked to the constructor’s `.prototype`.
+3. `this` inside the constructor points to the new object.
+4. The new object is returned.
+
+This pattern is how custom objects and inheritance are implemented.  
+```js
+function createUser(username, score) {
+    this.username = username;
+    this.score = score;
+}
+
+createUser.prototype.increment = function() {
+    this.score++;
+}
+
+createUser.prototype.printMe = function() {
+    console.log(`score is ${this.score}`);
+}
+
+const chai = new createUser("chai", 25);
+const tea = new createUser("tea", 25);
+
+chai.printMe();
+```
+
+---
+
+
+
