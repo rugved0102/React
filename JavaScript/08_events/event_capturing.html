@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="outer" style="padding: 30px; background-color: lightcoral;">
+  Outer Div
+  <div id="inner" style="padding: 30px; background-color: lightyellow;">
+    Inner Div
+  </div>
+</div>
+
+<script>
+  document.getElementById("outer").addEventListener("click", function() {
+    alert("Outer div clicked (capturing)");
+  }, true); // <- capture phase
+
+  document.getElementById("inner").addEventListener("click", function() {
+    alert("Inner div clicked (capturing)");
+  }, true); // <- capture phase
+</script>
+
+</body>
+</html>
