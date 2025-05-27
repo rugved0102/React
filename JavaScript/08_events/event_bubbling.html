@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="outer" style="padding: 30px; background-color: lightblue;">
+  Outer Div
+  <div id="inner" style="padding: 30px; background-color: lightgreen;">
+    Inner Div
+  </div>
+</div>
+
+<script>
+  document.getElementById("outer").addEventListener("click", function() {
+    alert("Outer div clicked (bubbling)");
+  });
+
+  document.getElementById("inner").addEventListener("click", function() {
+    alert("Inner div clicked (bubbling)");
+  });
+</script>
+
+</body>
+</html>
