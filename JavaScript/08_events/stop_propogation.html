@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="outer" style="padding: 30px; background-color: lightblue;">
+  Outer Div
+  <div id="inner" style="padding: 30px; background-color: lightgreen;">
+    Inner Div
+  </div>
+</div>
+
+<script>
+  document.getElementById("outer").addEventListener("click", function () {
+    alert("Outer clicked");
+  });
+
+  document.getElementById("inner").addEventListener("click", function (event) {
+    event.stopPropagation(); // ⛔ stop bubbling here
+    alert("Inner clicked");
+  });
+</script>
+
+</body>
+</html>
