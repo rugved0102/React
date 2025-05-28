@@ -1184,5 +1184,87 @@ let chai = new CreateUser("chai", "chai@fb.com", "none");
 console.log(chai);
 ```
 
+## 📘 JavaScript `bind()` 
+
+### 🔹 What is `bind()`?
+
+`bind()` is a method used to **lock the value of `this`** inside a function.  
+When we pass a function (like a class method) somewhere (e.g., as an event handler), JavaScript **may forget what `this` was**.  
+Using `bind()` fixes this problem.
+
+---
+
+### 🔹 Why do we need `bind()`?
+
+- In JavaScript, `this` is **dynamic** — it depends on **how a function is called**, not where it's defined.
+- If you pass a method like `this.handleClick` as a callback (e.g., in `addEventListener()`), it **loses context** — `this` no longer refers to your class object.
+
+---
+
+### 🔹 Real-Life Analogy
+
+Think of `this` like a **person** you're talking to. If you copy their words (function), and use them elsewhere (event), they might **forget who they are** — unless you lock their identity with `bind()`.
+
+---
+
+### 🔹 Syntax
 
 
+```js
+functionName.bind(context)
+```
+Here, `context` is the object you want `this` to point to.
+
+### 🔹 Example 1: Without bind() ❌
+```js
+class User {
+  constructor(name) {
+    this.name = name;
+    document.querySelector('button').addEventListener('click', this.sayHi);
+  }
+  sayHi() {
+    console.log(`Hi, I'm ${this.name}`);
+  }
+}
+```
+
+🧨 When the button is clicked, `this.name` is undefined — because `this` refers to the button, not the class.
+
+### 🔹 Example 2: With bind() ✅
+```js
+class User {
+  constructor(name) {
+    this.name = name;
+    document.querySelector('button').addEventListener('click', this.sayHi.bind(this));
+  }
+  sayHi() {
+    console.log(`Hi, I'm ${this.name}`);
+  }
+}
+```
+
+✅ Now this inside `sayHi()` always points to the class instance, not the button.
+
+---
+
+## 🔹 When to use `bind()`?
+
+| Situation                            | Use `bind()`? | Why?                                 |
+|-------------------------------------|---------------|--------------------------------------|
+| Passing a method as an event handler | ✅ Yes         | Preserves `this` context             |
+| Calling a method directly            | ❌ No          | No context is lost                   |
+| Inside `setTimeout` or `setInterval` | ✅ Yes         | `this` changes to `window` or `undefined` |
+
+---
+
+## 🔹 Key Point
+
+> JavaScript doesn’t remember `this` when you **pass** a function.  
+> `bind(this)` makes sure `this` always points to your class or object.
+
+---
+
+## 🔹 Summary
+
+- `bind()` **does not run** the function — it just returns a new function with `this` fixed.
+- You must call the result manually or pass it somewhere like in `addEventListener`.
