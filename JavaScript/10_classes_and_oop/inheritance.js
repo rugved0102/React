@@ -4,7 +4,7 @@ class User {
     }
 
     logMe() {
-        return `USERNAME is ${this.username}`;
+         console.log(`USERNAME is ${this.username}`);
     }
 }
 
@@ -16,7 +16,14 @@ class Teacher extends User {
     }
 
     addSubject() {
-        console.log("New subject added");
-        
+        console.log("New subject added");  
     }
 }
+
+let rugved = new Teacher("rugved","rugved@gmail.com",123);
+rugved.addSubject();
+
+let atharv = new User("athx","athx@google.com",243)
+atharv.logMe()
+
+console.log(rugved instanceof Teacher);
