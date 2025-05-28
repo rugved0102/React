@@ -1152,5 +1152,37 @@ chai.printMe();
 
 ---
 
+## 🔹 Understanding `call()` in JavaScript (Code 7)
+
+### 🔸 Problem:
+- When a function is called normally (like `SetUserName(username)`), it creates a **temporary execution context**.
+- After execution, the context is **destroyed**, and any variable or property (like `this.username`) set inside is **lost** from the calling context.
+
+### 🔸 Real-World Need:
+- You want to reuse logic from one function (`SetUserName`) **inside another constructor function** (`CreateUser`) without losing the internal data.
+
+### 🔸 Solution: Use `.call(this, ...)`
+- `SetUserName.call(this, username)` binds the `this` of `SetUserName` to the current object being built in `CreateUser`.
+- This way, the data set inside `SetUserName` is **retained** in the final object.
+
+### 🔸 Result:
+- The `username` becomes a part of the final object created using `new CreateUser(...)`.
+
+```js
+function SetUserName(username) {
+    this.username = username;
+    console.log("called");
+}
+
+function CreateUser(name, email, username) {
+    SetUserName.call(this, username); // bind SetUserName's `this` to CreateUser's `this`
+    this.email = email;
+    this.name = name;
+}
+
+let chai = new CreateUser("chai", "chai@fb.com", "none");
+console.log(chai);
+```
+
 
 
