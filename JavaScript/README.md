@@ -821,7 +821,7 @@ document.getElementById('google').addEventListener('click', function(e){
 
 ---
 ![alt text](08_events/How_JS_engine_works.png)
-[JavaScript Engine Deep Dive](JavaScript/How_JS_Engine_Works.md).
+[JavaScript Engine Deep Dive](JavaScript/How_JS_Engine_Works.md)
 
 ### 🧱 Components
 
