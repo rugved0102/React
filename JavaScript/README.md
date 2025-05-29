@@ -1373,3 +1373,56 @@ console.log(user.password); // Output: abcrugved
 ```
 
 ---
+
+## 📘 Lexical Scoping and Closures in JavaScript
+
+---
+
+### 🔹 What is Lexical Scoping?
+
+**Lexical Scope** (also called **static scope**) means:
+
+> A variable defined in an outer scope is accessible in its inner scope based on the code’s structure.
+
+#### 🧠 Key Rule:
+> **Scope is determined by where variables and functions are written in code, not where they are called.**
+
+#### 🔧 Example:
+
+```js
+function outer() {
+  let name = "JavaScript";
+
+  function inner() {
+    console.log(name); // ✅ Accessible due to lexical scoping
+  }
+
+  inner();
+}
+
+outer(); // JavaScript
+```
+
+---
+
+### 🔹 What is a Closure?
+> A **closure** is created when a function **remembers** the variables from its **lexical environment**, even after the outer function has finished executing.
+#### 🔧 Example:
+```js
+function outer() {
+  let counter = 0;
+
+  function inner() {
+    counter++;
+    console.log(counter);
+  }
+
+  return inner;
+}
+
+const fn = outer(); // outer() has run, but inner still remembers 'counter'
+fn(); // 1
+fn(); // 2
+```
+
+---
