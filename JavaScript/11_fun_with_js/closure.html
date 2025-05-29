@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
 </body>
 <script>
   /*function init() {
@@ -18,7 +19,7 @@
   displayName();
 }
 init(); 
-*/
+
 
 function outer() {
     let username = "Rugved"
@@ -35,6 +36,16 @@ function outer() {
 }
 outer()
 console.log("Outer",username)
-
+*/
+</script>
+<script>
+    function ClickHandler(color) {
+        return function() {
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+    document.getElementById('orange').onclick = ClickHandler("orange")
+    // yaha sirf wo function ka access nhi balki pure lexical scope ka access hai
+    document.getElementById('green').onclick = ClickHandler("green")
 </script>
 </html>
