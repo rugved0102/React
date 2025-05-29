@@ -1268,3 +1268,68 @@ class User {
 
 - `bind()` **does not run** the function — it just returns a new function with `this` fixed.
 - You must call the result manually or pass it somewhere like in `addEventListener`.
+
+--- 
+
+## 🔍 Understanding Property Descriptors in JavaScript
+
+### 🧠 What are Property Descriptors?
+JavaScript internally uses **property descriptors** to manage the behavior of object properties. These include:
+
+- **writable**: Can the property be changed?
+- **enumerable**: Will the property show up in loops like `for...in` or `Object.entries()`?
+- **configurable**: Can we redefine or delete the property?
+
+---
+
+## 🔬 Built-in Object Properties: `Math.PI`
+
+- `Math.PI` is a built-in constant.
+- Using `Object.getOwnPropertyDescriptor()`, we can see its descriptor.
+- `writable: false` → can't change its value.
+- Attempting to overwrite `Math.PI` silently fails (in non-strict mode).
+
+```js
+// Checking Math.PI descriptor and trying to change it
+const descriptor = Object.getOwnPropertyDescriptor(Math, "PI");
+console.log(descriptor);
+
+console.log(Math.PI);
+Math.PI = 5; // Fails silently
+console.log(Math.PI);
+```
+
+---
+
+### 🧪 Custom Object Descriptors: `Object.defineProperty()`
+
+- We can change property behavior using `Object.defineProperty()`.
+- Example: Making a property **non-enumerable** (`enumerable: false`) hides it from `for...in` or `Object.entries()`.
+
+```js
+// Making a property non-enumerable and inspecting its effect
+const chai = {
+    name: 'ginger chai',
+    price: 30,
+    isAvailable: true,
+
+    orderChai: function(){
+        console.log("chai nhi bani");
+    }
+}
+
+Object.defineProperty(chai, 'name', {
+    enumerable: false
+});
+
+for(let [key, value] of Object.entries(chai)) {
+    if(typeof value !== 'function'){
+        console.log(`${key}:${value}`);
+    }
+}
+```
+
+
+Use `Object.getOwnPropertyDescriptor()` to inspect, and `Object.defineProperty()` to modify behavior.
+
+---
