@@ -1333,3 +1333,43 @@ for(let [key, value] of Object.entries(chai)) {
 Use `Object.getOwnPropertyDescriptor()` to inspect, and `Object.defineProperty()` to modify behavior.
 
 ---
+## 📘 Getters and Setters in JavaScript
+
+### 🔹 What Are Getters and Setters?
+
+Getters and Setters are special methods that allow you to control access to object properties. They are part of **encapsulation** in object-oriented programming.
+
+---
+
+### 🔑 Why Use Them?
+
+- Control how a property is accessed or modified.
+- Perform validation, transformation, or logging when getting or setting a value.
+- Prevent direct access to sensitive data (like passwords).
+- Improve maintainability and abstraction in your code.
+
+---
+
+### 🧱 Syntax in a JavaScript Class
+
+```js
+class User {
+  constructor(email, password) {
+    this.email = email;
+    this.password = password; // invokes the setter
+  }
+
+  get password() {
+    return `${this._password}rugved`; // returns transformed password
+  }
+
+  set password(value) {
+    this._password = value; // stores internally
+  }
+}
+
+const user = new User("test@example.com", "abc");
+console.log(user.password); // Output: abcrugved
+```
+
+---
