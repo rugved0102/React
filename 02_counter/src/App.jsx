@@ -1,35 +1,55 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  let [count, setCount] = useState(0)
+
+  const add = () => {
+    setCount(count+1)
+  }
+
+  const remove = () => {
+    if(count > 0) {
+      setCount(count-1)
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Counter: {count}</h1>
+      <button
+      onClick={add}>+</button>
+      <br />
+      <button
+      onClick={remove}>-</button>
     </>
   )
 }
 
 export default App
+
+/*
+  📌 What we did:
+  - We built a simple counter app using React.
+  - The app shows a number and two buttons: one to increase and one to decrease the number.
+  - We used React's `useState` Hook to manage the number (state).
+
+  🔍 Why we used useState (React Hooks):
+  - In plain JavaScript, if we change a variable (like count++), it doesn’t update the webpage automatically.
+  - React needs a way to know when something changes so it can re-render the UI (the screen).
+  - useState gives us this ability — when we call setCount(), React updates the screen with the new value.
+
+  🧠 Problem in old JavaScript (without React or Hooks):
+  - If we just used a variable like `let count = 0`, and did count++, the HTML would NOT update.
+  - We'd have to manually use `document.querySelector` or something to update the DOM (which is messy and repetitive).
+
+  ✅ How React and Hooks fix this:
+  - With `useState`, React takes care of re-rendering the UI.
+  - When we update the state using `setCount()`, React automatically refreshes the part of the screen that uses `count`.
+  - This makes our code much cleaner and easier to manage.
+
+  ✨ In short:
+  - useState = easy way to make variables that update the UI automatically when they change.
+*/
