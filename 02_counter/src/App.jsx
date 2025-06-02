@@ -8,6 +8,17 @@ function App() {
 
   const add = () => {
     setCount(count+1)
+    // setCount(count+1)
+    // setCount(count+1)
+    // setCount(count+1)
+
+    // upar wala code uncomment kar ke dekho counter +4 nhi +1 hi hoga kyuki react ise ek batch ke tarah process karta hai
+
+    // agar +4 vala karna hi hai to yese kro
+    // setCount(prevCount => prevCount + 1)
+    // setCount(prevCount => prevCount + 1)
+    // setCount(prevCount => prevCount + 1)
+    // setCount(prevCount => prevCount + 1)
   }
 
   const remove = () => {
