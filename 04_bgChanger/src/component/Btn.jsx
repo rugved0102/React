@@ -1,11 +1,13 @@
 import React from 'react'
-function bgColor(color) {
-    
-}
-function Btn({color="white", handleColor}) {
+
+function Btn({color="black", handleColor}) {
+  
   return (
     <>
-    <button onClick={()=>handleColor(color)}>{color}</button>
+    <button 
+    className ='outline-none px-4 py-1 rounded-full text-white shadow-lg'
+    style = {{backgroundColor: color}}
+    onClick={()=>handleColor(color)}>{color}</button>
     </>
   )
 }
