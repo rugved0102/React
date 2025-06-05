@@ -87,7 +87,8 @@ src/
 
 ## 📸 Preview
 
-![App Screenshot](link-to-your-screenshot.png)
+![Screenshot 2025-06-05 183429](https://github.com/user-attachments/assets/dde1f0cb-ff9d-4c90-8370-645f78470d5c)
+
 
 ---
 
