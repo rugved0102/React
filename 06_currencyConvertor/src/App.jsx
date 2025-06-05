@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { InputBox } from './components'
-import './App.css'
+// import './App.css'
 import useCurrencyInfo from'./hooks/useCurrencyinfo'
 
 function App() {
@@ -26,7 +26,7 @@ const convert = () => {
   setConvertdAmount(amount * currencyInfo[to])
 }
 
-const BackgroundImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMFU-b4l0UFMlee-9PCXebm-qsQuQEGu-vWw&s'
+const BackgroundImage = 'https://images.pexels.com/photos/904735/pexels-photo-904735.jpeg?auto=compress&cs=tinysrgb&w=600'
   return (
         <div
             className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
@@ -47,10 +47,12 @@ const BackgroundImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT
                                 label="From"
                                 amount={amount}
                                 currencyOptions={options}
-                                onCurrencyChange={(currency) => {
-                                  setAmount(amount)
-                                }}
+                                // onCurrencyChange={(currency) => {
+                                //   setAmount(amount)
+                                // }}
+                                onCurrencyChange={(currency) => setFrom(currency)}
                                 selectCurrency={from}
+                                onAmountChange={(amount) => setAmount(amount)}
                             />
                         </div>
                         <div className="relative w-full h-0.5">
@@ -68,8 +70,9 @@ const BackgroundImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT
                                 
                                 amount={convertedAmount}
                                 currencyOptions={options}
+                                // onCurrencyChange={(currency) => setTo(currency)}
                                 onCurrencyChange={(currency) => setTo(currency)}
-                                selectCurrency={from}
+                                selectCurrency={to}
                                 amountDisable
                             />
                         </div>
