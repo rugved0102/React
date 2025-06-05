@@ -1,12 +1,112 @@
-# React + Vite
+# 💱 Currency Converter (React Project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and elegant currency converter built with **React**, using a public API for real-time exchange rates.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📚 What I Learned
 
-## Expanding the ESLint configuration
+### ✅ React Fundamentals
+- **JSX** syntax and component structure
+- Usage of **`useState`** for managing local state
+- Usage of **`useEffect`** for side effects like fetching data
+- **Props**: Passing and handling data between components
+- **Event handlers**: Managing `onChange`, `onClick`, and `onSubmit`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔁 Data Flow
+- Top-down data flow using props
+- Controlled inputs for real-time data binding
+- Passing callback functions like `onAmountChange` and `onCurrencyChange` to handle input and dropdown updates
+
+### 📦 Custom Hook
+- Created a **custom hook `useCurrencyInfo(fromCurrency)`** to:
+  - Fetch currency data from API
+  - Return the exchange rates object (e.g., `{ inr: 83.11, eur: 0.91, ... }`)
+- Learned how to reuse logic using hooks
+### Dataflow
+```text
+InputBox (From)  --> [amount, fromCurrency] -->
+     App        --> useCurrencyInfo(from) -->
+                  --> currencyInfo[to] * amount -->
+InputBox (To)    <-- convertedAmount
+```
+
+### 🧩 Component Design
+- Built a **reusable `InputBox` component**:
+  - Accepts amount, currency, label, and change handlers
+  - Supports disabling inputs for the converted amount
+- Used `useId()` for accessible input labeling
+
+### 🌐 API Integration
+- Fetched exchange rate data from:`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json`
+- Parsed and used only the relevant nested data
+
+### 🎨 Styling (Tailwind CSS)
+- Used **Tailwind CSS** utility classes for quick and responsive styling
+- Applied **backdrop blur**, gradient background, and mobile-friendly layout
+
+---
+
+## 🔧 Features
+
+- Convert between any two currencies
+- Live exchange rates via API
+- Input and dropdown handling
+- Swap button to quickly exchange `from` and `to` currencies
+- Responsive and aesthetic UI
+
+---
+
+## 🚀 How to Run Locally
+
+1. Clone the repository  
+ `git clone https://github.com/your-username/currency-converter.git`
+
+2. Install dependencies  
+ `npm install`
+
+3. Start the development server  
+ `npm run dev`
+
+---
+
+## 📁 Folder Structure
+
+```text
+src/
+├── App.jsx
+├── components/
+│ └── InputBox.jsx
+├── hooks/
+│ └── useCurrencyInfo.js
+└── assets/
+└── logos (optional)
+```
+
+---
+
+## 📸 Preview
+
+![App Screenshot](link-to-your-screenshot.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- React
+- Tailwind CSS
+- JavaScript (ES6+)
+- Vite (for fast build)
+
+---
+
+## 🧠 Next Steps
+
+- Add third currency comparison
+- Store currency preferences locally
+- Add loading indicator while fetching
+
+---
+
+
+
