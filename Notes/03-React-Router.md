@@ -48,3 +48,50 @@ project reference : [07_reactRouter](../07_reactRouter/):
 ```jsx
 const { userid } = useParams()
 ```
+
+## 🛠️ Router Setup
+We use:
+
+- `createBrowserRouter`: to define routes
+
+- `RouterProvider`: to provide the router to the app
+```jsx
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { path: '', element: <Home /> },
+      { path: 'about', element: <About /> },
+      { path: 'contact', element: <Contact /> },
+      { path: 'user/:userid', element: <User /> }
+    ]
+  }
+])
+
+function App() {
+  return <RouterProvider router={router} />
+}
+```
+## Layout Component
+- A Layout is used to avoid repeating common UI (like Header, Navbar, Footer) across all pages.
+
+- Use <Outlet /> to render the current route’s component inside the layout.
+
+```jsx
+import Header from './Header'
+import { Outlet } from 'react-router-dom'
+
+function Layout() {
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  )
+}
+
+export default Layout
+```
