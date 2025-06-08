@@ -95,3 +95,32 @@ function Layout() {
 
 export default Layout
 ```
+
+
+## 🧠 What is `useLoaderData()`?
+
+`useLoaderData()` is a React Router hook that allows a component to **access data returned by a `loader()` function**.
+
+> It connects a route’s component to its pre-fetched data.
+
+---
+
+## ✅ Why Do We Use It?
+
+- Cleanly separates **data fetching** (via `loader`) from **data usage** (via `useLoaderData`)
+- Removes the need for `useEffect` + `useState` in the component
+- Ensures data is **already available** when component renders
+
+---
+
+## 🛠️ Syntax
+
+```jsx
+import { useLoaderData } from 'react-router-dom'
+
+function MyComponent() {
+  const data = useLoaderData()
+
+  return <div>{data.someValue}</div>
+}
+```
