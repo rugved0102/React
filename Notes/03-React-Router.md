@@ -30,3 +30,21 @@ project reference : [07_reactRouter](../07_reactRouter/):
 - Used `NavLink` in header/menu to highlight current page link.
 
 - Styled active links using Tailwind CSS classes via `NavLink`'s `className` function.
+
+## useParams Hook in React Router
+
+- `useParams` is a React Router hook to access URL parameters.
+- URL parameters are defined in routes with a colon, e.g., `/user/:userid`.
+- `useParams` returns an object containing all parameters.
+- Useful to create dynamic routes and fetch dynamic data based on URL.
+
+## How we used `useParams` in the project
+
+- Defined a route `/user/:userid` where `userid` is dynamic.
+- Inside `User` component, used `const { userid } = useParams()` to get the `userid` from URL.
+- Displayed the dynamic `userid` in JSX.
+- Allows one component to handle multiple user views dynamically.
+
+```jsx
+const { userid } = useParams()
+```
