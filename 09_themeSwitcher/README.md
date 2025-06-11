@@ -4,11 +4,13 @@ A modern, responsive React application with **light/dark theme switching** funct
 
 ---
 
-## 📸 Preview
+## Preview
 
-Light Mode | Dark Mode
-:--:|:--:
-![Light Theme](./screenshots/light.png) | ![Dark Theme](./screenshots/dark.png)
+| Light Mode | Dark Mode |
+|:--:|:--:|
+| ![Light Theme](https://github.com/user-attachments/assets/68641733-846a-41d8-8d70-c3b93403d003) | ![Dark Theme](https://github.com/user-attachments/assets/b37586b7-e6eb-4bde-9774-3cf1b3a6613f) |
+
+
 
 ---
 
