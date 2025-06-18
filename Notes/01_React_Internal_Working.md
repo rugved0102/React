@@ -64,7 +64,7 @@ React updates the actual **DOM** using **ReactDOM**.
 Only the minimal required changes are made (performance optimization).
 
 ## React Rendering Flow
-
+```text
 JSX
  ↓ (Babel)
 React.createElement()
@@ -74,3 +74,4 @@ Virtual DOM (React Element)
 Fiber Tree (Reconciliation)
  ↓
 DOM Update via ReactDOM (Commit)
+```
