@@ -7,9 +7,13 @@ function App() {
   
   const [todos, setTodos] = useState([])
 
+  // todo - ek indivisual string hai
+  // todos - pura arr hai todo ki
   const addTodo = (todo) => {
     setTodos((prev) => [{id: Date.now(), ...todo}, ...prev])
   }
+  // { ...todo } spreads the existing todo data (message, completed status, etc.).
+  // The full array [newTodo, ...prev] creates a new todo list with the newest one on top.
 
   const updateTodo = (id, todo) => {
     setTodos((prev) => prev.map((prevTodo) => (prevTodo.id === id ? todo: prevTodo)))
@@ -31,11 +35,16 @@ function App() {
         setTodos(todos)
       }
     }, [])
+    // This hook runs only once when the component first mounts (because the dependency array is empty []).
+    // It reads from localStorage to load previously saved todos.
+    // If any todos are found, they’re set into React state using setTodos().
 
       useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos))
       }, [todos])
-
+      // This hook runs every time the todos state changes.
+      // It saves the updated todos list into localStorage.
+      // Uses JSON.stringify() because localStorage only stores strings.
   return (
     <TodoProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleComplete}}>
       <div className="bg-[#172842] min-h-screen py-8">

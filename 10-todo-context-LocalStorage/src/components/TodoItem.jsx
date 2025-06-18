@@ -3,10 +3,10 @@ import { useTodo } from "../contexts";
 
 function TodoItem({ todo }) {
     const [isTodoEditable, setIsTodoEditable] = useState(false)
-    const [todoMsg, setTodoMsg] = useState(todo.todo)
+    const [todoMsg, setTodoMsg] = useState(todo.todo) // From the todo object (which is passed as a prop), get its todo property (which is the string message the user typed).
     const {updateTodo, deleteTodo, toggleComplete} = useTodo()
     const editTodo = () => {
-        updateTodo(todo.id, {...todo, todo: todoMsg})
+        updateTodo(todo.id, {...todo, todo: todoMsg}) // updateTodo me parameters pass kiye hai implementation App.jsx me hai. yaha pe id aur obj pass kar rahe hai. Object ki old properties same rakhni hai sirf msg change karna hai.
         setIsTodoEditable(false)
 
     }
