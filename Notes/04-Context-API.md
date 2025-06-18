@@ -47,6 +47,15 @@ React Context API is a set of tools built into React to:
 
 ---
 
+## 🔄 How Context Works Internally
+- `createContext()` creates a context object with `.Provider` and `.Consumer`.
+
+- React internally uses a tree traversal algorithm to propagate the nearest matching Provider's value.
+
+- The `useContext()` hook subscribes to context changes, re-rendering when the context value updates.
+
+--- 
+
 ## 🛠️ When to Use Context
 
 Use context when:
