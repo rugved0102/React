@@ -49,6 +49,7 @@ export const store = configureStore({
 - This is the main Redux store (the global brain).
 - We added `counter` as one part of the memory.
 - Each “part” is called a **slice**.
+- `reducer` is a function that updates the state based on action
 
 ---
 
