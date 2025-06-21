@@ -35,16 +35,17 @@ function Todos() {
             ) : (
               <div className='text-white flex-grow mr-4'>{todo.text}</div>
             )}
-            <button
-              className="text-white bg-yellow-500 border-0 py-1 px-4 focus:outline-none hover:bg-yellow-600 rounded text-md"
-              onClick={() =>
-                todo.isEditable
-                  ? dispatch(commitEdit(todo.id))
-                  : dispatch(toggleEditable(todo.id))
-              }
-            >
-              {todo.isEditable ? '📁' : '✏️'}
-          </button>
+            <div className='flex gap-2'>
+              <button
+                className="text-white bg-yellow-500 border-0 py-1 px-4 focus:outline-none hover:bg-yellow-600 rounded text-md"
+                onClick={() =>
+                  todo.isEditable
+                    ? dispatch(commitEdit(todo.id))
+                    : dispatch(toggleEditable(todo.id))
+                }
+              >
+                {todo.isEditable ? '📁' : '✏️'}
+            </button>
 
             <button
              onClick={() => dispatch(removeTodo(todo.id))}
@@ -65,6 +66,7 @@ function Todos() {
                 />
               </svg>
             </button>
+            </div>
           </li>
         ))}
       </ul>
