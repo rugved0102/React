@@ -1,25 +1,52 @@
 # JS - Quick Notes
 
-## Declarations
+## 📚 Table of Contents
+- [JavaScript Datatypes](#javascript-datatypes)
+- [JavaScript Operators](#javascript-operators)
+- [JavaScript Array](#javascript-array-notes)
+- [JavaScript Objects](#javascript-objects)
+- [JavaScript Functions](#javascript-functions)
+- [JavaScript Scope & Hoisting](#javascript-scope--hoisting)
+- [JavaScript this & Arrow Functions](#javascript-this--arrow-functions)
+- [Immediately Invoked Function Expressions (IIFE)](#immediately-invoked-function-expressions-iife)
+- [JavaScript Execution Context & Call Stack](#javascript-execution-context--call-stack)
+- [Falsy/Truthy, Nullish, Ternary](#falsytruthy-nullish-ternary)
+- [JavaScript Loops & Iteration](#javascript-loops--iteration)
+- [DOM (Document Object Model)](#dom-document-object-model)
+- [DOM Events](#dom-events)
+- [Asynchronous JavaScript](#asynchronous-javascript)
+- [JavaScript Promises](#javascript-promises)
+- [Prototypal Behavior, Inheritance & `this`/`now`](#prototypal-behavior-inheritance--thisnow)
+- [Understanding `call()` in JavaScript](#understanding-call-in-javascript)
+- [JavaScript `bind()`](#javascript-bind)
+- [Understanding Property Descriptors in JavaScript](#understanding-property-descriptors-in-javascript)
+- [Getters and Setters in JavaScript](#getters-and-setters-in-javascript)
+- [Lexical Scoping and Closures in JavaScript](#lexical-scoping-and-closures-in-javascript)
+- [Extra](#extra)
+
+
+## JavaScript Datatypes
+
+### Declarations
 - `const` → Cannot be reassigned.  
 - `let` → Can be reassigned.  
 - `var` → ❌ Avoid (scope issues), function-scoped (not block-scoped). Variables declared with `var` inside `if`, `for`, etc. are accessible outside that block.  
 - Implicit declaration (`accountCity = "Pune";`) is unsafe.
 
-## Undefined Variables
+### Undefined Variables
 - Declaring without value → `undefined`.
 
-## Logging
+### Logging
 - `console.table([var1, var2, ...]);` → Displays values in table.
 
-### Best Practices ✅  
+#### Best Practices ✅  
 - Use `const` & `let`, avoid `var`.  
 - Always declare before using.  
 - Don't modify `const`.  
-## **Strict Mode**  
+### **Strict Mode**  
 - `"use strict";` → Ensures modern JS behavior.  
 
-## **Data Types**  
+### **Data Types**  
 1. **Primitive Types**  
    (call by value)
    - `number` → Up to **2⁵³**  
@@ -34,15 +61,15 @@
    (call by reference)
    - `object` → Collection of key-value pairs  
 
-## **Type Checking**  
+### **Type Checking**  
 ```js
 console.log(typeof "Rugved"); // string
 console.log(typeof undefined); // undefined
 console.log(typeof null); // object
 ```
-## Type Conversion  
+### Type Conversion  
 
-### **To Number (`Number()`)**  
+#### **To Number (`Number()`)**  
 | Input Value  | Converted Number |
 |-------------|----------------|
 | `"33"`      | `33`           |
@@ -58,7 +85,7 @@ let valueInNumber = Number(score);
 console.log(typeof valueInNumber); // number
 console.log(valueInNumber); // NaN
 ```
-### **To Boolean (Boolean())**
+#### **To Boolean (Boolean())**
 | Input Value       | Converted Boolean |
 |-------------------|-------------------|
 | `1`               | `true`            |
@@ -145,9 +172,6 @@ console.log(undefined < 0);     // false
 console.log(undefined >= 0);    // false
 console.log(undefined <= 0);    // false
 ```
-
-## IMP Points
-- JavaScript is a dynamic language and not static, which means that variables can hold values of different types during runtime. Unlike languages such as Typescript or Java, you don't need to declare the data type of a variable explicitly.
 
 ## JavaScript Array Notes
 
@@ -373,7 +397,7 @@ console.log(a); // 300 (outer 'a')
 ### 🔹 Function Scope & Closure
 ```js
 function one() {
-  const username = "hitesh";
+  const username = "rugved";
   function two() {
     const website = "youtube";
     console.log(username); // Closure: inner can access outer
@@ -384,8 +408,8 @@ function one() {
 ### 🔹Nested If Scope
 ```js
 if (true) {
-  const username = "hitesh";
-  if (username === "hitesh") {
+  const username = "rugved";
+  if (username === "rugved") {
     const website = "youtube";
     console.log(username + website);
   }
@@ -426,7 +450,7 @@ if (true) {
 ### 🏠 Object & `this`  
 ```js
 const user = {
-    username: "hitesh",
+    username: "rugved",
     price: 999,
     welcomeMessage: function() {
         console.log(`${this.username}, welcome to website`);
@@ -450,7 +474,7 @@ console.log(user);
 ### ❌ this inside a Regular Function
 ```js
 function chai() {
-    let username = "hitesh";
+    let username = "rugved";
     console.log(this.username); // ❌ undefined
 }
 chai();
@@ -462,7 +486,7 @@ chai();
 ### 🏹 this in Arrow Functions
 ```js
 const chai = () => {
-    let username = "hitesh";
+    let username = "rugved";
     console.log(this);
 };
 chai();
@@ -475,17 +499,17 @@ chai();
 ```js
 const addTwo = (num1, num2) => num1 + num2;
 const addTwo2 = (num1, num2) => (num1 + num2);
-const addTwo3 = (num1, num2) => ({ username: "hitesh" });
+const addTwo3 = (num1, num2) => ({ username: "rugved" });
 
 console.log(addTwo(3, 4)); // 7
-console.log(addTwo3()); // { username: "hitesh" }
+console.log(addTwo3()); // { username: "rugved" }
 ```
 - ✅ No `return` needed if using implicit return (`() => expression`).
 
 - ✅ To return an object, wrap it inside `()` → `({})`.
 
-## 🚀 Immediately Invoked Function Expressions (IIFE)
-
+<!-- ## 🚀 Immediately Invoked Function Expressions (IIFE) -->
+## Immediately Invoked Function Expressions (IIFE)
 ### 🔹 What is IIFE?  
 - A function that **executes immediately** after its definition.  
 - Helps **avoid global scope pollution**.
@@ -501,7 +525,7 @@ console.log(addTwo3()); // { username: "hitesh" }
 // Arrow Function IIFE with Parameter
 ((name) => {
     console.log(`DB CONNECTED TWO ${name}`);
-})('hitesh');
+})('rugved');
 ```
 
 ## JavaScript Execution Context & Call Stack
@@ -676,7 +700,7 @@ const sum = nums.reduce((acc, curr) => acc + curr, 0); // 6
 | `map`     | Transform items  | New array           | Modify elements in array          |
 | `filter`  | Select items     | New filtered array  | Extract matching items            |
 
-## 🌐 DOM (Document Object Model)
+## DOM (Document Object Model)
 
 ### 📘 What is the DOM?
 - The **DOM** is a programming interface for web documents.
@@ -808,7 +832,7 @@ document.getElementById('google').addEventListener('click', function(e){
 
 
 
-## ⚡ Asynchronous JavaScript 
+## Asynchronous JavaScript 
 
 ![alt text](08_events/image.png)
 <!-- akela js ka engine hota hi nhi hai mostly vo runtime env me milega -->
@@ -860,45 +884,8 @@ Async Task
 ```
 ---
 
-## 💡 Is `console.log` a part of JavaScript?
 
-- Technically, `console.log()` is **not** a part of the **core JavaScript language** (ECMAScript specification).
-- Core JavaScript includes:
-  - Primitive data types
-  - Operators
-  - Control structures (like `if`, `for`, `while`)
-  - Function execution and scope handling
-
----
-
-### 🔍 Then what is `console.log()`?
-
-- It is a **debugging tool** provided by the **runtime environment** (like a web browser or Node.js).
-- In the **browser**, `console.log` is part of the **Web APIs** provided by the **JavaScript runtime** (like Chrome's V8 engine via DevTools).
-- In **Node.js**, it’s exposed via the global `console` object, implemented in C++ under the hood.
-
----
-
-### 🧠 So What’s Really Happening?
-
-- JavaScript is often said to be a "wrapper over C++" in runtime environments.
-- The `console` object and methods like `.log()` are made available by the **runtime**, not by the language spec itself.
-- That's why you can't use `console.log()` in environments without a console (like pure embedded JS engines).
-
----
-
-### ✅ Conclusion:
-
-`console.log()` ≠ Pure JavaScript  
-`console.log()` ∈ Runtime Features
-
-It’s like saying:  
-🛠️ **JavaScript = Brain**  
-🌍 **Runtime = World it lives in (with tools)**  
-
----
-
-## 🚀 JavaScript Promises 
+## JavaScript Promises 
 
 ### 🔹 What is a Promise?
 - An object representing the eventual completion or failure of an async operation.
@@ -1008,7 +995,7 @@ fetch('https://api.example.com/data')
 
 ---
 
-## 🚀 Prototypal Behavior, Inheritance & `this`
+## Prototypal Behavior, Inheritance & `this`/`now`
 
 ### 🔹 What is `[[Prototype]]`?
 
@@ -1152,7 +1139,7 @@ chai.printMe();
 
 ---
 
-## 🔹 Understanding `call()` in JavaScript (Code 7)
+## Understanding `call()` in JavaScript 
 
 ### 🔸 Problem:
 - When a function is called normally (like `SetUserName(username)`), it creates a **temporary execution context**.
@@ -1184,7 +1171,7 @@ let chai = new CreateUser("chai", "chai@fb.com", "none");
 console.log(chai);
 ```
 
-## 📘 JavaScript `bind()` 
+## JavaScript `bind()` 
 
 ### 🔹 What is `bind()`?
 
@@ -1247,7 +1234,7 @@ class User {
 
 ---
 
-## 🔹 When to use `bind()`?
+### 🔹 When to use `bind()`?
 
 | Situation                            | Use `bind()`? | Why?                                 |
 |-------------------------------------|---------------|--------------------------------------|
@@ -1257,21 +1244,21 @@ class User {
 
 ---
 
-## 🔹 Key Point
+### 🔹 Key Point
 
 > JavaScript doesn’t remember `this` when you **pass** a function.  
 > `bind(this)` makes sure `this` always points to your class or object.
 
 ---
 
-## 🔹 Summary
+### 🔹 Summary
 
 - `bind()` **does not run** the function — it just returns a new function with `this` fixed.
 - You must call the result manually or pass it somewhere like in `addEventListener`.
 
 --- 
 
-## 🔍 Understanding Property Descriptors in JavaScript
+## Understanding Property Descriptors in JavaScript
 
 ### 🧠 What are Property Descriptors?
 JavaScript internally uses **property descriptors** to manage the behavior of object properties. These include:
@@ -1333,7 +1320,7 @@ for(let [key, value] of Object.entries(chai)) {
 Use `Object.getOwnPropertyDescriptor()` to inspect, and `Object.defineProperty()` to modify behavior.
 
 ---
-## 📘 Getters and Setters in JavaScript
+## Getters and Setters in JavaScript
 
 ### 🔹 What Are Getters and Setters?
 
@@ -1374,7 +1361,7 @@ console.log(user.password); // Output: abcrugved
 
 ---
 
-## 📘 Lexical Scoping and Closures in JavaScript
+## Lexical Scoping and Closures in JavaScript
 
 ---
 
@@ -1424,5 +1411,50 @@ const fn = outer(); // outer() has run, but inner still remembers 'counter'
 fn(); // 1
 fn(); // 2
 ```
+
+---
+
+## Extra
+
+### IMP Points
+- JavaScript is a dynamic language and not static, which means that variables can hold values of different types during runtime. Unlike languages such as Typescript or Java, you don't need to declare the data type of a variable explicitly.
+
+---
+
+### 💡 Is `console.log` a part of JavaScript?
+
+- Technically, `console.log()` is **not** a part of the **core JavaScript language** (ECMAScript specification).
+- Core JavaScript includes:
+  - Primitive data types
+  - Operators
+  - Control structures (like `if`, `for`, `while`)
+  - Function execution and scope handling
+
+---
+
+#### 🔍 Then what is `console.log()`?
+
+- It is a **debugging tool** provided by the **runtime environment** (like a web browser or Node.js).
+- In the **browser**, `console.log` is part of the **Web APIs** provided by the **JavaScript runtime** (like Chrome's V8 engine via DevTools).
+- In **Node.js**, it’s exposed via the global `console` object, implemented in C++ under the hood.
+
+---
+
+#### 🧠 So What’s Really Happening?
+
+- JavaScript is often said to be a "wrapper over C++" in runtime environments.
+- The `console` object and methods like `.log()` are made available by the **runtime**, not by the language spec itself.
+- That's why you can't use `console.log()` in environments without a console (like pure embedded JS engines).
+
+---
+
+#### ✅ Conclusion:
+
+`console.log()` ≠ Pure JavaScript  
+`console.log()` ∈ Runtime Features
+
+It’s like saying:  
+🛠️ **JavaScript = Brain**  
+🌍 **Runtime = World it lives in (with tools)**  
 
 ---
